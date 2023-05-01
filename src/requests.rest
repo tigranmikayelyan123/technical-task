@@ -1,0 +1,74 @@
+POST http://localhost:3000/api/users/signup
+Content-Type: application/json
+
+{
+  "username": "gexam",
+  "password": "pass2",
+  "email": "jjm228@mailpremium.net",
+  "phoneNumber": "+374 12 45 65 43"
+}
+
+###
+
+POST http://localhost:3000/api/users/signin
+Content-Type: application/json
+
+{
+  "email": "jjm228@mailpremium.net",
+  "password": "pass2"
+}
+
+### 
+
+POST http://localhost:3000/api/users/signin/new_token
+Content-Type: application/json
+
+{
+  "refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZlZDI4N2ZjLWJmZTItNGQ2NC05YzZmLWI1NTk4NDNkOThiYSIsImlhdCI6MTY4Mjg3ODc2OX0.2kCMjZon7reZttF_JyQBNowdcHQa3OK8LZiBnCLA7gc"
+}
+
+###
+
+POST http://localhost:3000/api/users/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiMmIwMGM3NWYtMzg2Ni00NGEwLWEwYzUtNTc2OTIzODdlNjI3IiwidXNlcm5hbWUiOiJnZXhhbSIsInBhc3N3b3JkIjoiJDJiJDEwJFdUMTUxQkVyYXdyenV1SE1BSUwxeWVQUXFaZ1A3cFJEUFR4QVZuNFlEOGlMdlRpWUcvNFRhIiwiZW1haWwiOiJqam0yMjhAbWFpbHByZW1pdW0ubmV0IiwicGhvbmVOdW1iZXIiOiIrMzc0IDEyIDQ1IDY1IDQzIn0sImlhdCI6MTY4Mjk0OTk2NywiZXhwIjoxNjgyOTUwNTY3fQ.LX-TLRqurZ1Q_sE0TdKs6PgLNq-uMriKGHT7KDWs0Zc
+Content-Type: application/json
+
+
+{
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZlZDI4N2ZjLWJmZTItNGQ2NC05YzZmLWI1NTk4NDNkOThiYSIsImlhdCI6MTY4Mjg3ODczMn0.ojYtHbb7PtDzmLEvOs5rSgUEAlcA7UczwJy_mXPaOa8"
+}
+
+###
+
+GET http://localhost:3000/api/users/info
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZmVkMjg3ZmMtYmZlMi00ZDY0LTljNmYtYjU1OTg0M2Q5OGJhIiwidXNlcm5hbWUiOiJ2YXJkYW4iLCJwYXNzd29yZCI6IiQyYiQxMCRaS3kxa254VlpMUjNTclhncGt0YzkuTkwvMXJFbm9CSGhnMXFOVjFnbzZEcUNINlpKZDQwNiIsImVtYWlsIjoibm9ybWFuM0BtdGN4bWFpbC5jb20iLCJwaG9uZU51bWJlciI6IiszNzQgMTIgNDUgNjUgNDMifSwiaWF0IjoxNjgyODc4Nzg4LCJleHAiOjE2ODI4Nzg4MTh9.UHO1I_3EA3W_OcE8pko0GugJ2J2MtznhIEV3PcizInM
+
+###
+
+GET http://localhost:3000/api/file/list
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNzg2NmNmNTAtMzM4ZS00YTcwLTg0ZmYtMTczMjZlMjViM2E3IiwidXNlcm5hbWUiOiJ0aWdyYW4iLCJwYXNzd29yZCI6IiQyYiQxMCRJd3RHQ1VDT09PeTlJRFd3dnJtZVRPY0R6VGRsYnpBejNBY1EySlpFNDZxakVLYkg4dWkwRyIsImVtYWlsIjoia2luZ2thaHVuYUBjaGVja2FkbWluLm1lIiwicGhvbmVOdW1iZXIiOiIrMzc0IDEyIDQ1IDY1IDQzIn0sImlhdCI6MTY4MjkzNjIwNywiZXhwIjoxNjgyOTM2ODA3fQ.chkxqhesuajeUAeYrkR1n2z9gIbyFCsDQd7Mob762V0
+Content-Type: application/json
+
+{
+  "list_size": 2,
+  "page": 4
+}
+
+###
+
+DELETE http://localhost:3000/api/file/delete/c44e255e-aec2-48ed-961e-1c74808ba966
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZTljYTljM2YtMmNhZi00ZTM0LTkwNmEtMzJjNjA3ODljNTM3IiwidXNlcm5hbWUiOiJ0aWdyYW4iLCJwYXNzd29yZCI6IiQyYiQxMCR0d1dTdGIwRDAzSk5xWFVRMVUzM21lcDROQi5ld2M0ZVFPUFVUcThzYTVheld0UXRBRC8wRyIsImVtYWlsIjoia2luZ2thaHVuYUBjaGVja2FkbWluLm1lIiwicGhvbmVOdW1iZXIiOiIrMzc0IDEyIDQ1IDY1IDQzIn0sImlhdCI6MTY4MjkzOTcxNSwiZXhwIjoxNjgyOTQwMzE1fQ.e7a9FIXXLQLy51gUe4Xvsium8qHvklQT81TacAJ89xE
+Content-Type: application/json
+
+###
+
+GET http://localhost:3000/api/file/cafc43de-99ed-408f-adde-98e2a4ba6223
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZTljYTljM2YtMmNhZi00ZTM0LTkwNmEtMzJjNjA3ODljNTM3IiwidXNlcm5hbWUiOiJ0aWdyYW4iLCJwYXNzd29yZCI6IiQyYiQxMCR0d1dTdGIwRDAzSk5xWFVRMVUzM21lcDROQi5ld2M0ZVFPUFVUcThzYTVheld0UXRBRC8wRyIsImVtYWlsIjoia2luZ2thaHVuYUBjaGVja2FkbWluLm1lIiwicGhvbmVOdW1iZXIiOiIrMzc0IDEyIDQ1IDY1IDQzIn0sImlhdCI6MTY4Mjk0MTQ3NiwiZXhwIjoxNjgyOTQyMDc2fQ.yiAmhbA8Amk-B6jH-OYV5ZcZy2cdIt-tqLlve0hXKn0
+Content-Type: application/json
+
+###
+
+GET http://localhost:3000/api/file/download/3de750d8-c1dc-4f4a-94e1-250675c29e8b
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZTljYTljM2YtMmNhZi00ZTM0LTkwNmEtMzJjNjA3ODljNTM3IiwidXNlcm5hbWUiOiJ0aWdyYW4iLCJwYXNzd29yZCI6IiQyYiQxMCR0d1dTdGIwRDAzSk5xWFVRMVUzM21lcDROQi5ld2M0ZVFPUFVUcThzYTVheld0UXRBRC8wRyIsImVtYWlsIjoia2luZ2thaHVuYUBjaGVja2FkbWluLm1lIiwicGhvbmVOdW1iZXIiOiIrMzc0IDEyIDQ1IDY1IDQzIn0sImlhdCI6MTY4Mjk0NDAxMSwiZXhwIjoxNjgyOTQ0NjExfQ.MyzQReK_3D5F7SEoJBiW2QpuVZHIWhSj1RoDO6o6crI
+Content-Type: application/json
+
