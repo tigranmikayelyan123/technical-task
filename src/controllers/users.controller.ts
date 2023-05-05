@@ -1,6 +1,6 @@
-import { NextFunction, Request, Response } from "express";
-import { usersService } from "../services/users.service";
-import { CustomRequest } from "../middlewares/authenticateToken";
+import { NextFunction, Request, Response } from 'express';
+import { usersService } from '../services/users.service';
+import { CustomRequest } from '../middlewares/authenticateToken';
 
 export class UserController {
   async save(

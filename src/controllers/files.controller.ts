@@ -1,8 +1,8 @@
-import path = require("path");
+import path = require('path');
 
-import { NextFunction, Response } from "express";
-import { CustomRequest } from "../middlewares/authenticateToken";
-import { filesService } from "../services/files.service";
+import { NextFunction, Response } from 'express';
+import { CustomRequest } from '../middlewares/authenticateToken';
+import { filesService } from '../services/files.service';
 
 export class FileController {
   async upload(
@@ -11,8 +11,8 @@ export class FileController {
     next: NextFunction
   ): Promise<void> {
     const file: Express.Multer.File = request.file;
-    const filename = file.filename.split(".")[0];
-    const extension = file.filename.split(".")[1];
+    const filename = file.filename.split('.')[0];
+    const extension = file.filename.split('.')[1];
     const { user } = request.user;
 
     await filesService.createFile({
@@ -26,7 +26,7 @@ export class FileController {
     if (request.fileValidationError) {
       response.status(500).send({ message: request.fileValidationError });
     } else {
-      response.status(200).send({ message: "Success" });
+      response.status(200).send({ message: 'Success' });
     }
   }
 
@@ -41,7 +41,7 @@ export class FileController {
     if (files.length) {
       response.status(200).send({ files });
     } else {
-      response.status(404).send({ message: "not found" });
+      response.status(404).send({ message: 'not found' });
     }
   }
 
@@ -65,7 +65,7 @@ export class FileController {
     const file = await filesService.getOneFile({ fileId, user });
 
     if (!file) {
-      response.status(404).send({ message: "not found" });
+      response.status(404).send({ message: 'not found' });
     } else {
       response.status(200).send({ file });
     }
@@ -85,7 +85,7 @@ export class FileController {
     response.download(filePath, (err) => {
       if (err) {
         response.status(500).send({
-          message: "Could not download the file. " + err,
+          message: 'Could not download the file. ' + err,
         });
       }
     });
@@ -97,8 +97,8 @@ export class FileController {
     next: NextFunction
   ): Promise<void> {
     const file: Express.Multer.File = request.file;
-    const filename = file.filename.split(".")[0];
-    const extension = file.filename.split(".")[1];
+    const filename = file.filename.split('.')[0];
+    const extension = file.filename.split('.')[1];
     const fileId = request.params.id;
     const { user } = request.user;
 
@@ -111,10 +111,10 @@ export class FileController {
         size: file.size,
         mime_type: file.mimetype,
       });
-      response.status(200).send({ message: "Success" });
+      response.status(200).send({ message: 'Success' });
     } catch (err) {
       response.status(500).send({
-        message: "something went wrong",
+        message: 'something went wrong',
       });
     }
   }

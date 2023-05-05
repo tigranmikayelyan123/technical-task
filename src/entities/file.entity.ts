@@ -4,12 +4,12 @@ import {
   Column,
   PrimaryGeneratedColumn,
   ManyToOne,
-} from "typeorm";
-import { User } from "./user.entity";
+} from 'typeorm';
+import { User } from './user.entity';
 
-@Entity("files")
+@Entity('files')
 export class File {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()

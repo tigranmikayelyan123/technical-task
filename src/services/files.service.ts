@@ -1,12 +1,12 @@
-import * as fs from "fs";
-import * as path from "path";
-import { ReplaceFileDto } from "./../dtos/replaceFile.dto";
-import { DeleteFileDto } from "../dtos/deleteFile.dto";
-import { File } from "../entities/file.entity";
-import { User } from "../entities/user.entity";
-import { fileRepository } from "../repositories/files.repository";
-import { FileDetailsDto } from "./../dtos/fileDetails.dto";
-import { OneFileDto } from "../dtos/oneFile.dto";
+import * as fs from 'fs';
+import * as path from 'path';
+import { ReplaceFileDto } from './../dtos/replaceFile.dto';
+import { DeleteFileDto } from '../dtos/deleteFile.dto';
+import { File } from '../entities/file.entity';
+import { User } from '../entities/user.entity';
+import { fileRepository } from '../repositories/files.repository';
+import { FileDetailsDto } from './../dtos/fileDetails.dto';
+import { OneFileDto } from '../dtos/oneFile.dto';
 class FileService {
   async createFile(fileDetailsDto: FileDetailsDto): Promise<void> {
     await fileRepository.saveFileDetails(fileDetailsDto);

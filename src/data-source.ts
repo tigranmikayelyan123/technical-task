@@ -1,11 +1,11 @@
-import "reflect-metadata";
-import { Token } from "./entities/token";
-import { DataSource } from "typeorm";
-import { User } from "./entities/user.entity";
-import { File } from "./entities/file.entity";
+import 'reflect-metadata';
+import { Token } from './entities/token';
+import { DataSource } from 'typeorm';
+import { User } from './entities/user.entity';
+import { File } from './entities/file.entity';
 
 export const AppDataSource = new DataSource({
-  type: "mysql",
+  type: 'mysql',
   host: process.env.DB_HOST,
   port: +process.env.DB_PORT,
   username: process.env.DB_CUSTOM_USER,

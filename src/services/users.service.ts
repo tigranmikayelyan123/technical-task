@@ -1,9 +1,9 @@
-import * as jwt from "jsonwebtoken";
-import * as bcrypt from "bcrypt";
-import { User } from "../entities/user.entity";
-import { userRepository } from "../repositories/users.repository";
-import { CreateUserDto } from "../dtos/signup.dto";
-import { SinginDto } from "../dtos/signin.dto";
+import * as jwt from 'jsonwebtoken';
+import * as bcrypt from 'bcrypt';
+import { User } from '../entities/user.entity';
+import { userRepository } from '../repositories/users.repository';
+import { CreateUserDto } from '../dtos/signup.dto';
+import { SinginDto } from '../dtos/signin.dto';
 
 class UserService {
   async signUp(createUserDto: CreateUserDto): Promise<{
@@ -30,14 +30,14 @@ class UserService {
 
     if (user && (await bcrypt.compare(password, user.password))) {
       const accessToken = jwt.sign({ user }, process.env.ACCESS_TOKEN_SECRET, {
-        expiresIn: "10m",
+        expiresIn: '10m',
       });
 
       return {
         accessToken,
       };
     } else {
-      throw new Error("Check your credentials");
+      throw new Error('Check your credentials');
     }
   }
 
@@ -46,12 +46,12 @@ class UserService {
     const userId = payload.id;
     const refreshToken = await userRepository.getRefreshToken(token);
     if (!refreshToken) {
-      throw new Error("No refreshtoken for this user");
+      throw new Error('No refreshtoken for this user');
     }
 
     const user: User = await userRepository.findUserById(userId);
     const accessToken = jwt.sign({ user }, process.env.ACCESS_TOKEN_SECRET, {
-      expiresIn: "10m",
+      expiresIn: '10m',
     });
 
     return accessToken;

@@ -2,14 +2,14 @@ import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
-} from "typeorm";
+} from 'typeorm';
 
-@Entity("refresh_tokens")
+@Entity('refresh_tokens')
 export class Token {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ type: "varchar", length: 400 })
+  @Column({ type: 'varchar', length: 400 })
   value: string;
 
   @Column()

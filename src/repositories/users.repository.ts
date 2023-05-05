@@ -1,8 +1,8 @@
-import * as bcrypt from "bcrypt";
-import { Token } from "../entities/token";
-import { User } from "../entities/user.entity";
-import { CreateUserDto } from "../dtos/signup.dto";
-import { AppDataSource } from "../data-source";
+import * as bcrypt from 'bcrypt';
+import { Token } from '../entities/token';
+import { User } from '../entities/user.entity';
+import { CreateUserDto } from '../dtos/signup.dto';
+import { AppDataSource } from '../data-source';
 
 export class UserRepository {
   async createUser(createUserDto: CreateUserDto): Promise<User> {

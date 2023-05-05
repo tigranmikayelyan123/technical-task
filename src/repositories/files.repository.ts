@@ -1,9 +1,9 @@
-import { AppDataSource } from "../data-source";
-import { DeleteFileDto } from "../dtos/deleteFile.dto";
-import { OneFileDto } from "../dtos/oneFile.dto";
-import { File } from "../entities/file.entity";
-import { User } from "../entities/user.entity";
-import { FileDetailsDto } from "./../dtos/fileDetails.dto";
+import { AppDataSource } from '../data-source';
+import { DeleteFileDto } from '../dtos/deleteFile.dto';
+import { OneFileDto } from '../dtos/oneFile.dto';
+import { File } from '../entities/file.entity';
+import { User } from '../entities/user.entity';
+import { FileDetailsDto } from './../dtos/fileDetails.dto';
 
 export class FileRepository {
   async saveFileDetails(fileDetailsDto: FileDetailsDto): Promise<void> {
@@ -20,8 +20,8 @@ export class FileRepository {
   }
 
   async listFilesWithPagination(
-    list_size: number = 3,
-    page: number = 1,
+    list_size = 3,
+    page = 1,
     user: User
   ): Promise<File[]> {
     const [result, total] = await AppDataSource.getRepository(
